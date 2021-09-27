@@ -39,10 +39,10 @@ function readForm(file)
 function main() {
     var name = getCookie("user");
     if (!name) {
-        var input = prompt("Dit nous ton petit nom (ex: Michel Durant)")
-        if (!input)
+        name = prompt("Dit nous ton petit nom (ex: Michel Durant)")
+        if (!name)
             return main()
-        setCookie("user", input, 30);
+        setCookie("user", name, 30);
     }
 }
 
