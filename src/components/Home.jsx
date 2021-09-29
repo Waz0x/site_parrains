@@ -3,9 +3,14 @@ import Flippy, {BackSide, FrontSide} from "react-flippy";
 import 'reactjs-popup/dist/index.css';
 import data from '../parrains/parrains.json'
 import {Container, Row, Col} from "react-grid-system";
+import './home.css'
 
 function choose(props) {
-    alert(props.name)
+    if (parseInt(localStorage.getItem("number")) >= parseInt(process.env.REACT_APP_MAX_PAR)) {
+        return alert("Tu ne peux pas ajouter plus de " + process.env.REACT_APP_MAX_PAR + " parrains")
+    }
+    localStorage.setItem("number", (parseInt(localStorage.getItem("number")) + 1).toString())
+    localStorage.setItem("parrain" + localStorage.getItem("number"), props.id.toString())
 }
 
 function Sample(props) {
@@ -31,7 +36,7 @@ function Sample(props) {
                 - Aime {par.like}<br/>
                 - Aime pas {par.nlike}<br/>
                 - Passions {par.passion}<br/>
-                <button onClick={() => { choose(par); }}>Choose</button>
+                <button onClick={() => { choose(par); }}>Choisir</button>
             </BackSide>
         </Flippy>
     )

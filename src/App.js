@@ -5,6 +5,8 @@ import {Navigation, Footer, Home, Admin} from "./components";
 import './App.css';
 
 function App() {
+  localStorage.clear()
+  localStorage.setItem("number", "0")
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   return (
     <div className="App">
