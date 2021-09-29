@@ -13,8 +13,8 @@ function Sample(props) {
     const par = props.par
     return (
         <Flippy
-            flipOnHover={false}
-            flipOnClick={true}
+            flipOnHover={true}
+            flipOnClick={false}
             flipDirection="horizontal"
             ref={ref}
             style={{ width: '250px', height: '250px' }}
