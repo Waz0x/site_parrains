@@ -18,7 +18,7 @@ function Navigation(props) {
                                 }`}
                             >
                                 <Link class="nav-link" to="/">
-                                    Home
+                                    Parrains
                                     <span class="sr-only">(current)</span>
                                 </Link>
                             </li>
@@ -28,7 +28,7 @@ function Navigation(props) {
                                 }`}
                             >
                                 <Link class="nav-link" to="/confirm">
-                                    Confirm
+                                    Confirmation
                                 </Link>
                             </li>
                         </ul>

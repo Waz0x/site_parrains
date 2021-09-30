@@ -4,11 +4,9 @@ import 'reactjs-popup/dist/index.css';
 import data from '../parrains/parrains.json'
 import {Container, Row, Col} from 'react-grid-system';
 import './home.css'
-import '../lib/dbHandler'
 
 function choose(props) {
     let string = localStorage.getItem("parrains").toString() + props.id.toString() + ";"
-    console.log(string)
     if (parseInt(localStorage.getItem("number")) >= parseInt(process.env.REACT_APP_MAX_PAR)) {
         return alert("Tu ne peux pas ajouter plus de " + process.env.REACT_APP_MAX_PAR + " parrains")
     }
@@ -29,7 +27,6 @@ function remove(props) {
             localStorage.setItem("parrains", array.join(";"))
         }
     }
-    console.log(array)
 }
 
 function isEnabled(id) {
@@ -44,7 +41,7 @@ function isEnabled(id) {
 
 function useForceUpdate(){
     const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
+    return () => setValue( value + 1); // update the state to force render
 }
 
 function Card(props) {
@@ -96,7 +93,6 @@ function Home() {
     const [parrains, setParrains] = useState(data.parrains)
     var rows = [];
     for (var i = 0; i < len; ++i) {
-        console.log(parrains[i])
         rows.push(<Col><Card par={parrains[i]}/></Col>)
     }
 
