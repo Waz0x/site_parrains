@@ -1,3 +1,17 @@
+# Site parrains
+
+Website to choose your parrain in tek 0, done in react, edit [this](https://github.com/Waz0x/site_parrains/blob/master/src/parrains/parrains.json) file to add/remove parrains description etc...
+
+Add the images in this [folder](https://github.com/Waz0x/site_parrains/tree/master/public/images)
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
