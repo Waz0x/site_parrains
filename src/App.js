@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   localStorage.clear()
   localStorage.setItem("number", "0")
+  localStorage.setItem("parrains", "")
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   return (
     <div className="App">
