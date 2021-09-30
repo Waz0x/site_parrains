@@ -52,7 +52,6 @@ function Card(props) {
     const par = props.par
     const enabled = isEnabled(par.id)
     const forceUpdate = useForceUpdate();
-    const [Count, setCount] = useState(0);
     return (
         <Flippy
             flipOnHover={true}

@@ -16,11 +16,10 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        if (email === process.env.REACT_APP_ADMIN_USER && password === process.env.REACT_APP_ADMIN_PASS) {
-            userHasAuthenticated(true);
-            alert("Logged in")
+        if ((email.split("@")[1] === "epitech.eu") || (email.split("@")[1] === "epitech.digital")) {
+            alert("Nice balls bro")
         } else {
-            alert("Error:\nBad credentials");
+            alert("Error:\nPlease use your epitech-mail adress (@epitech.eu or @epitech.digital)");
         }
     }
 
