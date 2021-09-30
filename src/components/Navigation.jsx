@@ -24,11 +24,11 @@ function Navigation(props) {
                             </li>
                             <li
                                 class={`nav-item  ${
-                                    props.location.pathname === "/admin" ? "active" : ""
+                                    props.location.pathname === "/confirm" ? "active" : ""
                                 }`}
                             >
-                                <Link class="nav-link" to="/admin">
-                                    Admin
+                                <Link class="nav-link" to="/confirm">
+                                    Confirm
                                 </Link>
                             </li>
                         </ul>

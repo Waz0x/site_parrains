@@ -10,7 +10,7 @@ export default function Login() {
     const [password, setPassword] = useState("");
 
     function validateForm() {
-        return email.length > 0 && password.length > 0;
+        return email.length > 0;
     }
 
     async function handleSubmit(event) {
@@ -24,7 +24,6 @@ export default function Login() {
         }
     }
 
-
     return (
         <div className="Login">
             <Form onSubmit={handleSubmit}>
@@ -37,16 +36,8 @@ export default function Login() {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </Form.Group>
-                <Form.Group size="lg" controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </Form.Group>
                 <Button block size="lg" type="submit" disabled={!validateForm()}>
-                    Login
+                    Confirm
                 </Button>
             </Form>
         </div>

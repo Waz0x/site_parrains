@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { AppContext } from "./lib/contextLib";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {Navigation, Footer, Home, Admin} from "./components";
+import {Navigation, Footer, Home, Confirm} from "./components";
 import './App.css';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             <Route path="/" exact component={() => <Home />} />
             <AppContext.Provider
                 value={{ isAuthenticated, userHasAuthenticated }}>
-              <Route path="/admin" exact component={() => <Admin />}
+              <Route path="/confirm" exact component={() => <Confirm />}
               /></AppContext.Provider>
           </Switch>
         <Footer />
