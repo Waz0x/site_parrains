@@ -13,16 +13,15 @@ export default function Login() {
     async function handleSubmit(event) {
         const par = email + ":" + localStorage.getItem("parrains").toString()
         event.preventDefault();
-        if (par === "") {
+        if (localStorage.getItem("parrains").toString() === "") {
             return alert("Vous ne pouvez pas valider sans choisir de parrain")
         }
         if ((email.split("@")[1] === "epitech.eu") || (email.split("@")[1] === "epitech.digital")) {
-            alert("Tout est bon merci !")
             fetch("http://51.91.255.204:8080/?email=" + par).then(function (response) {
                 if (response.status !== 200) {
                     alert("Something went wrong please contact admin, error:" + response.status.toString())
                 } else {
-                    alert("Merci de votre participation.\nvous allez etre prevenus dans les plus brefs délais par vos parrains")
+                    alert("Merci de votre participation.\nvous allez etre contactés dans les plus brefs délais par votre parrains")
                 }
             })
         } else {
@@ -43,7 +42,7 @@ export default function Login() {
                     />
                 </Form.Group>
                 <Button block size="lg" type="submit" disabled={!validateForm()}>
-                    Confirm
+                    Confirmer
                 </Button>
             </Form>
         </div>
