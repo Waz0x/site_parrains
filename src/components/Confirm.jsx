@@ -2,16 +2,9 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
-<<<<<<< HEAD
-
 
 export default function Login() {
     const [email, setEmail] = useState("");
-=======
-
-export default function Login() {
-    const [email, setEmail] = useState("");
-
 
     function validateForm() {
         return email.length > 0;
