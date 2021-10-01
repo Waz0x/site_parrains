@@ -13,9 +13,10 @@ export default function Login() {
     async function handleSubmit(event) {
         const par = email + ":" + localStorage.getItem("parrains").toString()
         event.preventDefault();
-        if (localStorage.getItem("parrains").toString() === "") {
-            return alert("Vous ne pouvez pas valider sans choisir de parrain")
-        }
+        if (localStorage.getItem("parrains").toString() === "")
+            return alert("Vous ne pouvez pas valider sans choisir de parrain");
+        if (localStorage.getItem("parrains").toString().split(";").length > parseInt(process.env.REACT_APP_MAX_PAR) + 1)
+            return alert("T'as cru koi toi");
         if ((email.split("@")[1] === "epitech.eu") || (email.split("@")[1] === "epitech.digital")) {
             fetch("http://51.91.255.204:8080/?email=" + par).then(function (response) {
                 if (response.status !== 200) {
