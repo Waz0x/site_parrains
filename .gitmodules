@@ -1,0 +1,3 @@
+[submodule "site_parrains_api"]
+	path = site_parrains_api
+	url = git@github.com:Waz0x/site_parrains_api.git
