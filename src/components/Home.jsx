@@ -4,6 +4,7 @@ import 'reactjs-popup/dist/index.css';
 import data from '../parrains/parrains.json'
 import {Container, Row, Col} from 'react-grid-system';
 import './home.css'
+import Popup from "reactjs-popup";
 
 function choose(props) {
     let string = localStorage.getItem("parrains").toString() + props.id.toString() + ";"
@@ -44,8 +45,13 @@ function useForceUpdate(){
     return () => setValue( value + 1); // update the state to force render
 }
 
+function truncate(str) {
+    return str.length > 20 ? str.substring(0, 17) + "..." : str;
+}
+
 function Card(props) {
     const ref = useRef();
+    let flipped = false;
     const par = props.par
     const enabled = isEnabled(par.id)
     const forceUpdate = useForceUpdate();
@@ -65,22 +71,33 @@ function Card(props) {
                 />
             </FrontSide>
             <BackSide style={{ backgroundColor: 'rgba(23,88,82,0)'}}>
-                - Description: {par.desc} <br/>
-                - Aime {par.like}<br/>
-                - Aime pas {par.nlike}<br/>
-                - Passions {par.passion}<br/>
+                - <b>Description:</b> {truncate(par.desc)} <br/>
+                - <b>Aime:</b> {truncate(par.like)}<br/>
+                - <b>N'aime pas:</b> {truncate(par.nlike)}<br/>
+                -<b> Passions:</b> {truncate(par.passion)}<br/>
+                <Popup trigger={<button class="rm" onClick={(e) => {e.stopPropagation()}}>Read more</button>}>
+                    <div>
+                        - <b>Description:</b> {par.desc} <br/>
+                        - <b>Aime:</b> {par.like}<br/>
+                        - <b>N'aime pas:</b> {par.nlike}<br/>
+                        - <b>Passions:</b> {par.passion}<br/>
+                    </div>
+                </Popup>
+                <br/>
                 {
                     (!enabled ?
                     <button onClick={function (event) {
                         event.preventDefault();
                         forceUpdate();
                         choose(par);
+                        event.stopPropagation()
                     }}>Choisir</button>
                 :
                     <button class="disabled" onClick={function (event) {
                         event.preventDefault();
                         forceUpdate()
                         remove(par.id);
+                        event.stopPropagation()
                     }}>Supprimer</button>)
                 }
                 </BackSide>
